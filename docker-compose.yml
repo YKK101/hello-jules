@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  n8n:
+    build:
+      context: .
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+    environment:
+      - GENERIC_TIMEZONE=Europe/Berlin # This will override the Dockerfile's UTC setting
+      # You can add other environment variables here if needed, for example:
+      # - N8N_BASIC_AUTH_USER=youruser
+      # - N8N_BASIC_AUTH_PASSWORD=yourpassword
+      # - N8N_ENCRYPTION_KEY=somereallylongrandomstring
